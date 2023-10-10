@@ -1,0 +1,38 @@
+// Initialize variables
+bool continue = true;
+List<Table> tables = new List<Table>();
+
+// Do until continue is false
+do
+{
+    // Extract information from the forms, using an AI model to process the input file content
+    var data = ExtractInfoFromForms(fileContent);
+
+    // Populate the table array with the item data
+    foreach (var item in data)
+    {
+        tables.Add(new Table()
+        {
+            Names = item.Names,
+            Unions = item.Unions,
+            Payment = item.Payment,
+            Rate = item.Rate,
+            Fee = item.Fee,
+            Taxes = item.Taxes
+        });
+    }
+
+    // Set continue to false if the scope fails
+    if (!ScopeFails())
+    {
+        continue = false;
+    }
+}
+while (continue);
+
+// Apply to each table in the array, running the data cleanup scope
+foreach (var table in tables)
+{
+    // Clean up the data in the table
+    CleanupTable(table);
+}
