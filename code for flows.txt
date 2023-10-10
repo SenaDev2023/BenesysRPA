@@ -31,10 +31,3 @@ scope (data clean up
 
 	add row into a table > location, doc. library, file, table  columns 1-11))
 
-
-
-// as he created a migration , on perm t bring ino into SPO it then sent email to users, not all end users were in the users, adding all the users 
-
-ramiro ran a migration: after he created a site, sharegate sent out a broadcast email, everyone in Medicaid got a notifiaction email
-
-erica and carolyn 
