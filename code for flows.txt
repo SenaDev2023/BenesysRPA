@@ -27,7 +27,3 @@ scope (data clean up
 
 	>VAR(names, unions, payment, rate, fee, taxes)
 
-
-
-	add row into a table > location, doc. library, file, table  columns 1-11))
-
