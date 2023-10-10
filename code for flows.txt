@@ -1,0 +1,40 @@
+Flow for Benesys | Scan Multiple Page Report with Single Page Table
+
+Trigger***
+
+INIT Cont. VAR
+	(bool)
+>init table VAR<
+	((table, array)
+
+
+> Do Until <
+	cont. until equal to false
+>> scope 
+
+	((extract info on forms,> ai model, input, file content
+	
+	populate table array with item data> append to array var, table and current item
+	
+	set cont. to false if scope fails
+	)) 
+
+> Apply to Each < 
+
+select table as output
+
+scope (data clean up
+
+	>VAR(names, unions, payment, rate, fee, taxes)
+
+
+
+	add row into a table > location, doc. library, file, table  columns 1-11))
+
+
+
+// as he created a migration , on perm t bring ino into SPO it then sent email to users, not all end users were in the users, adding all the users 
+
+ramiro ran a migration: after he created a site, sharegate sent out a broadcast email, everyone in Medicaid got a notifiaction email
+
+erica and carolyn 
