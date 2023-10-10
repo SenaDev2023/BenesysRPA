@@ -1,29 +1,50 @@
 Flow for Benesys | Scan Multiple Page Report with Single Page Table
 
-Trigger***
+using System;
+using System.Collections.Generic;
 
-INIT Cont. VAR
-	(bool)
->init table VAR<
-	((table, array)
+namespace FlowForBenesys
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Initialize variables
+            bool cont = true;
+            List<(table, array)> tableArray = new List<(table, array)>();
 
+            // Do until cont is false
+            do
+            {
+                // Extract information from forms
+                // ...
 
-> Do Until <
-	cont. until equal to false
->> scope 
+                // Populate table array with item data
+                tableArray.Add((table, new array() { itemData1, itemData2, ... }));
 
-	((extract info on forms,> ai model, input, file content
-	
-	populate table array with item data> append to array var, table and current item
-	
-	set cont. to false if scope fails
-	)) 
+                // Set cont to false if scope fails
+                if (// scope fails)
+                {
+                    cont = false;
+                }
+            } while (cont);
 
-> Apply to Each < 
+            // Apply to each table
+            foreach ((table, array) item in tableArray)
+            {
+                // Data cleanup
+                string names = "";
+                string unions = "";
+                string payment = "";
+                string rate = "";
+                string fee = "";
+                string taxes = "";
 
-select table as output
+                // ...
 
-scope (data clean up
-
-	>VAR(names, unions, payment, rate, fee, taxes)
+                // Do something with the cleaned-up data
+            }
+        }
+    }
+}
 
