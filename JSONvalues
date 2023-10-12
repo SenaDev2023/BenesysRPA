@@ -1,0 +1,25 @@
+{
+  "PayerInformation": {
+    "CompanyName": "Acme Corporation",
+    "Address": "123 Main Street, Anytown, CA 91234",
+    }
+  },
+  "InvoiceRemittanceDetails": {
+    "InvoiceNumber": "123456",
+    "InvoiceDate": "2023-10-12",
+    "DueDate": "2023-10-31",
+    "PaymentAmount": 1000,
+    "PaymentMethod": "Check"
+  },
+  "UnionMemberInformation": {
+    "MemberName": "John Doe",
+    "MemberId": 1234567890,
+    "UnionLocal": 123,
+    "WorkDetails": "10 hours of carpentry work"
+  },
+  "WagesAndDeductions": {
+    "Wages": 500,
+    "Taxes": 100,
+    "UnionDues": 50,
+    "OtherDeductions": 0
+  }
