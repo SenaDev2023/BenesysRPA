@@ -1,0 +1,79 @@
+Test Driven Development (TDD) for an RPA system which will web scrape contributions from Kentucky carpenters and send it to another legacy website with Power Automate, AI Builder and RPA in C#, you can follow these steps:
+
+1. Create a new C# project.
+
+You can use any C# IDE, such as Visual Studio or Visual Studio Code.
+
+2. Install the necessary NuGet packages.
+
+You will need to install the following NuGet packages:
+
+- NUnit
+- Moq
+- Selenium.WebDriver
+- Selenium.WebDriver.ChromeDriver
+
+3. Create a new test class.
+
+In your test class, create a test method for each unit of functionality in your RPA system. For example, you could create a test method for the function that web scrapes the contributions from Kentucky carpenters and a test method for the function that sends the contributions to the legacy website.
+
+4. Write the test methods.
+
+Each test method should verify that the corresponding unit of functionality works as expected. For example, the test method for the function that web scrapes the contributions from Kentucky carpenters could verify that the function returns a list of contributions for Kentucky carpenters.
+
+5. Write the code to pass the tests.
+
+Don't worry about writing perfect code at this stage. Just focus on getting the code to pass the tests.
+
+6. Refactor the code.
+
+Once the code passes the tests, take some time to refactor it. This means cleaning up the code, making it more efficient, and improving its readability.
+
+7. Repeat steps 3-6 for all of the units of functionality in your RPA system.
+
+Here is an example of a simple test method for the function that web scrapes the contributions from Kentucky carpenters:
+C#
+
+[Test]
+public void Test_WebScrapeKentuckyCarpenterContributions()
+{
+  // Arrange
+  var webScraper = new WebScraper();
+
+  // Act
+  var contributions = webScraper.WebScrapeKentuckyCarpenterContributions();
+
+  // Assert
+  Assert.That(contributions, Is.Not.Null);
+  Assert.That(contributions.Count, Is.GreaterThan(0));
+}
+
+Use code with caution. Learn more
+
+Here is an example of a simple function to web scrape the contributions from Kentucky carpenters:
+C#
+
+public class WebScraper
+{
+  public List<Contribution> WebScrapeKentuckyCarpenterContributions()
+  {
+    // TODO: Implement the web scraping logic here
+
+    return new List<Contribution>();
+  }
+}
+
+Use code with caution. Learn more
+
+Once you have written the test method and the function, you can run the test to make sure that the code works as expected. If the test passes, then you know that your code is working correctly. If the test fails, then you need to fix the code until it passes the test.
+
+You can use the same approach to write test methods for the other units of functionality in your RPA system.
+
+By using TDD, you can help to ensure that your RPA system is well-designed and that it works as expected.
+
+In addition to the above, you can also use the following tips for using TDD effectively:
+
+    Write tests first. Don't start writing code until you have written a test for it.
+    Write small tests. Each test should test a single unit of functionality.
+    Write red-green-refactor. Write a test, write the code to pass the test, then refactor the code.
+    Repeat. Repeat the red-green-refactor cycle until you have implemented all of the functionality for your RPA system.
