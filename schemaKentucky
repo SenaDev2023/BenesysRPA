@@ -1,0 +1,42 @@
+schema configuration for an Kentucky contribution for retirement in Dataverse:
+
+Entity: KentuckyContributionForRetirement
+
+Primary Key: ContributionId
+
+Attributes:
+- ContributionId (GUID)
+- MemberId (GUID)
+- EmployerId (GUID)
+- ContributionDate (datetime)
+- ContributionAmount (decimal)
+- ContributionType (optionset)
+
+Optionset for ContributionType:
+
+    Lump Sum
+    Pre-Tax
+    Roth
+    Post-Tax
+
+This schema configuration will allow you to store all of the relevant information about an Kentucky contribution for retirement, such as the member ID, employer ID, contribution date, contribution amount, and contribution type.
+
+You can also add additional attributes to the entity, such as the following:
+
+    InvestmentVehicle (optionset)
+    InvestmentAllocation (decimal)
+    ExpectedRetirementDate (datetime)
+
+These additional attributes can help you to track the member's investment vehicle, investment allocation, and expected retirement date.
+
+You can also create relationships between the KentuckyContributionForRetirement entity and other entities in Dataverse, such as the following:
+
+    Member (1:N)
+    Employer (1:N)
+    InvestmentVehicle (1:N)
+
+These relationships will allow you to easily access related data, such as the member's name, employer's name, and investment vehicle name.
+
+Once you have created the schema configuration for the KentuckyContributionForRetirement entity, you can start importing your data into Dataverse. You can use the Data Import Wizard to import data from a variety of sources, such as Excel, CSV, and SQL Server.
+
+Once your data has been imported into Dataverse, you can start using it to generate reports, create dashboards, and automate processes.
