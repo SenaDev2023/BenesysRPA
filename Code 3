@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BenesysClient; // Benesys.net integration library
+using Tesseract; // OCR library
+using OnBase; // OnBase workflow software library
+
+class AutomationProgram
+{
+    static void Main(string[] args)
+    {
+        // Log into Benesys.net
+        BenesysClient.Login("username", "password");
+
+        // Fetch remittance and contribution forms
+        List<PaymentForm> paymentForms = FetchPaymentForms();
+
+        // Extract data from remittance and contribution forms using OCR
+        foreach (PaymentForm form in paymentForms)
+        {
+            if (form.Color == "Beige")
+            {
+                ExtractBeigeForm(form);
+            }
+            else if (form.Color == "Green")
+            {
+                ExtractGreenForm(form);
+            }
+        }
+
+        // Save extracted data to OnBase
+        SaveDataToOnBase(paymentForms);
+
+        // Reconcile bank statements for accuracy assurance
+        ReconcileBankStatements();
+    }
+
+    private static List<PaymentForm> FetchPaymentForms()
+    {
+        List<PaymentForm> forms = new List<PaymentForm>();
+
+        // Fetch remittance forms from Benesys.net
+        List<RemittanceForm> remittanceForms = BenesysClient.GetRemittanceForms();
+        forms.AddRange(remittanceForms);
+
+        // Fetch contribution forms from Benesys.net
+        List<ContributionForm> contributionForms = BenesysClient.GetContributionForms();
+        forms.AddRange(contributionForms);
+
+        return forms;
+    }
+
+    private static void ExtractBeigeForm(PaymentForm form)
+    {
+        using (TesseractEngine engine = new TesseractEngine())
+        {
+            string text = engine.Process(form.PdfPath);
+            ExtractDataFromText(form, text);
+        }
+    }
+
+    private static void ExtractGreenForm(PaymentForm form)
+    {
+        using (TesseractEngine engine = new TesseractEngine())
+        {
+            string text = engine.Process(form.PdfPath);
+            ExtractDataFromText(form, text);
+        }
+    }
+
+    private static void ExtractDataFromText(PaymentForm form, string text)
+    {
+        // Parse the text to extract the required data fields (e.g., account number, amount, date)
+        // Populate the PaymentForm object with the extracted data
+    }
+
+    private static void SaveDataToOnBase(List<PaymentForm> paymentForms)
+    {
+        // Connect to OnBase workflow software
+        OnBaseClient onBaseClient = new OnBaseClient();
+
+        // Create or update documents in OnBase based on the payment forms
+        foreach (PaymentForm form in paymentForms)
+        {
+            onBaseClient.CreateOrUpdateDocument(form.Data);
+        }
+    }
+
+    private static void ReconcileBankStatements()
+    {
+        // Download bank statements
+        List<BankStatement> statements = DownloadBankStatements();
+
+        // Compare the extracted payment data with the bank statements to ensure accuracy
+        foreach (BankStatement statement in statements)
+        {
+            foreach (PaymentForm form in paymentForms)
+            {
+                if (form.Account == statement.Account && form.Amount == statement.Amount)
+                {
+                    // Match found
+                }
+            }
+        }
+    }
+}
+
+Use code with caution. Learn more
